@@ -16,10 +16,9 @@
 #ifndef __vtkTestingOutputWindow_h
 #define __vtkTestingOutputWindow_h
 
-#include "vtkAddonModule.h"
-
-#include "vtkObject.h"
+#include "vtkAddonModule.h" // For export macroexport definitions
 #include "vtkOutputWindow.h"
+
 #include "vtkLoggingMacros.h" // for vtkInfoWithoutObjectMacro
 
 /// \brief VTK message output window class for automated testing.

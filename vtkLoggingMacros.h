@@ -61,3 +61,4 @@
 #endif
 
 #endif // __vtkLoggingMacros_h
+// VTK-HeaderTest-Exclude: vtkLoggingMacros.h
