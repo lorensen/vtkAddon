@@ -51,22 +51,29 @@ protected:
   // Copy this transform from another of the same type.
   void InternalDeepCopy(vtkAbstractTransform *transform);
 
-  // Avoid hiding overloads from base class... these will include the float
-  // overloads that forward to the double overloads (hence no need to override
-  // the float versions)
-  using vtkGridTransform::ForwardTransformPoint;
-  using vtkGridTransform::ForwardTransformDerivative;
-  using vtkGridTransform::InverseTransformDerivative;
-
   // Description:
   // Internal functions for calculating the transformation.
   void ForwardTransformPoint(const double in[3], double out[3]);
+  void ForwardTransformPoint(const float in[3], float out[3])
+  {
+    ForwardTransformPoint(in, out);
+  }
 
   void ForwardTransformDerivative(const double in[3], double out[3],
                                   double derivative[3][3]);
+  void ForwardTransformDerivative(const float in[3], float out[3],
+                                  float derivative[3][3])
+  {
+    ForwardTransformDerivative(in, out, derivative);
+  }
 
   void InverseTransformDerivative(const double in[3], double out[3],
                                   double derivative[3][3]);
+  void InverseTransformDerivative(const float in[3], float out[3],
+                                  float derivative[3][3])
+  {
+    InverseTransformDerivative(in, out, derivative);
+  }
 
   // Description:
   // Grid axis direction vectors (i, j, k) in the output space
